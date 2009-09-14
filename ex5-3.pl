@@ -6,9 +6,17 @@
 $measure = "1234567890";
 #print "Please enter the number of columns: ";
 print "Please enter a string on each line until end of file, with the first line being the width: \n";
-$cols = <>;
+chomp($cols = <>);
 chomp(@lines = <>);
-print $measure x 6, "\n";    
+
+
+if ($cols % 10 !=0) {
+    print $measure x (($cols/10)+1), "\n";
+}
+else{
+    print $measure x ($cols/10), "\n";
+}
+
 foreach $line (@lines){
     printf "%".$cols."s\n", $line;
 }
